@@ -4,6 +4,7 @@ package com.spring.mongo.api.resource;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,13 +17,14 @@ import com.spring.mongo.api.model.model_user;
 import com.spring.mongo.api.repository.repository_user;
 
 //BODY CONTROLLER
+@CrossOrigin
 @RestController
 public class controller_user {
 
 	// OBJECT REPOSITORY USER
 	@Autowired
 	private repository_user repository;
-
+	
 	// ADD USER
 	@PostMapping("/add_user")
 	public String registerUser(@RequestBody model_user user) {
@@ -54,4 +56,3 @@ public class controller_user {
 		return "DELETE USER: " + id;
 	}
 
-}
